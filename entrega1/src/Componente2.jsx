@@ -30,6 +30,7 @@ function ChampValorant() {
                 {personajes.map((personaje) => (<>
                     <option>{personaje.displayName}
                     </option>
+                    <img src = {personaje.displayIcon}/>
                     <p>{personaje.description}</p>
                    </>
                 ))}
