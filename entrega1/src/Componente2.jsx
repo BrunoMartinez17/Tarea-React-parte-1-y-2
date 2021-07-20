@@ -10,12 +10,12 @@ function ChampValorant() {
         const getPersonajes = async () => {
           try {
             const response = await axios.get('https://valorant-api.com/v1/agents');
-            
             setPersonajes(response.data.data);
+
           } catch (err) {
-            // eslint-disable-next-line no-console
+
             console.error('fallo axios', err);
-            setError('Hubo un error al traer los campeones de League of Legends');
+            setError('no se detectan los campeones de valorant');
           }
         };
         getPersonajes();
@@ -23,15 +23,18 @@ function ChampValorant() {
     
 
     return (
+       
         <>
-        
             {error}
-            <select>
-                {personajes.map((personaje) => (
-                    <option>{personaje.displayName}</option>
+            
+                {personajes.map((personaje) => (<>
+                    <option>{personaje.displayName}
+                    </option>
+                    <p>{personaje.description}</p>
+                   </>
                 ))}
-            </select>
-        </>
+            </>
+       
     );
 
 };
